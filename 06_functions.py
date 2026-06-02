@@ -89,15 +89,42 @@ def even_numbers(list1):
 result = even_numbers(nr)
 print(result)
 
-var2 = ["ERR-Value Error-ER:10", "INF-Program launch Info-CD:5", "WRN-Low memory-WR:11"]
+var1 = [
+    "ERR-Value Error-ER:10",
+    "INF-Program launch Info-CD:5",
+    "WRN-Low memory-WR:11"
+]
 
-for s in var2:
-    print(f"Tip mesaj: {s.split("-")[0]}")
-    print(f"Mesaj: {s.split("-")[1]}")
-    print(s.split("-")[2])
+var2 = [
+     "ERR-Value Error-ER:10",
+     "INF-Program launch Info-CD:5",
+     "WRN-Low memory-WR:11"
+ ]
+
+#
+# for s in var2:
+#     print(f"Tip mesaj: {s.split("-")[0]}")
+#     print(f"Mesaj: {s.split("-")[1]}")
+#     print(s.split("-")[2])
 
 
+def format_logs(param1):
+    chunks =[]
+    for s in param1:
+        if s.split("-")[0] == "ERR":
+            chunks.append("ERROR")
+        elif s.split("-")[0] == "WRN":
+            chunks.append("WARNING")
+        elif s.split("-")[0] == "INF":
+            chunks.append("INF")
+        else:
+            chunks.append(s.split("-")[0])
 
+        chunks.append(f"Mesaj: {s.split("-")[1]}")
 
+        chunks.append(f"Cod: {s.split("-")[2].split("-")[1]}\n")
 
-
+    str_result = "\n".join(chunks)
+    return str_result
+result = format_logs(var2)
+print(result)
