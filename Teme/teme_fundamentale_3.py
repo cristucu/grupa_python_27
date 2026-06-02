@@ -43,13 +43,15 @@ lista2 = [
 ]
 
 for mesaj in lista1 + lista2:
-    if mesaj.split("-")[0] == "ERR":
+    parts = mesaj.split("-")
+
+    if parts[0] == "ERR":
         print("[ERROR]")
-    elif mesaj.split("-")[0] == "INF":
+    elif parts[0] == "INF":
         print("[INFO]")
     else:
         print("[WARNING]")
 
-    print("Mesaj:", mesaj.split("-")[1])
-    print("Cod:", mesaj.split("-")[2].split(":")[1])
+    print("Mesaj:", parts[1])
+    print("Cod:", parts[2].split(":")[1])
     print()
