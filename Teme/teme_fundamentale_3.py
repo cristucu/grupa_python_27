@@ -42,8 +42,8 @@ lista2 = [
     "WRN-Bandwith reached-WR:87"
 ]
 
-for mesaj in lista1 + lista2:
-    parts = mesaj.split("-")
+for err_msg in lista1 + lista2:
+    parts = err_msg.split("-")
 
     if parts[0] == "ERR":
         print("[ERROR]")
